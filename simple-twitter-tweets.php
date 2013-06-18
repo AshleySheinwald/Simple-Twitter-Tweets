@@ -32,7 +32,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 	function PI_SimpleTwitterTweets()  {
 		$widget_ops = array('classname' => 'PI_SimpleTwitterTweets', 'description' => 'Displays the most recent tweets from your Twitter Stream' );
 		//$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'Not-required-this-time' );  
-		$this->WP_Widget('PI_SimpleTwitterTweets', 'Simple Tweet Display', $widget_ops);
+		$this->WP_Widget('PI_SimpleTwitterTweets', 'Simple Twitter Tweets', $widget_ops);
 	}
  
 	function form($instance){
