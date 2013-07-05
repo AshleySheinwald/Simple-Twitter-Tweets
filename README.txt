@@ -4,7 +4,7 @@ Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A94
 Tags: Twitter, Stream, Tweets, Twitter OAuth, social
 Requires at least: 3.0
 Tested up to: 3.5.2
-Stable tag: 1.2.1
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -115,6 +115,21 @@ As far as we know it just works! Phew, but if you have an issue or you want to p
 
 == Changelog ==
 
+= 1.3.1 =
+* Added @ symbol for Twitter name links in Tweets
+
+= 1.3 =
+* Added
+	* Hash Tag linking and ReTweet @names linking
+	* Name reference added to hover state attribute for date link Screen Names - better than username reference
+
+* Updated
+	* Updated depricated functions to ensure future compatibility
+	* Rewrote link creation for URLs in tweets
+
+* Fixed
+	* Fixed screen name reference for Twitter date links
+
 = 1.2 =
 * Added Twitter name reference enabling database backup for multiple account use
 * Added Twitter Follow Button and configuration options
@@ -128,5 +143,5 @@ As far as we know it just works! Phew, but if you have an issue or you want to p
 
 == Upgrade Notice ==
 
-= 1.2 =
-Multiple account use enabled, "Twitter Follow Button" added with display options.
+= 1.3.1 =
+Minor update. Added @ symbol for visual Twitter names in Tweets
