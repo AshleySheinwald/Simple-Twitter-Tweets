@@ -115,6 +115,10 @@ As far as we know it just works! Phew, but if you have an issue or you want to p
 
 == Changelog ==
 
+= 1.3.3 =
+* [Fixed] URLs no longer truncated in retweets!
+* [Added] cURL error notification: this is a required PHP extension for connection to the Twitter API
+
 = 1.3.2 =
 * Fixed Exclude Replies variable notice and tweet calculation
 
