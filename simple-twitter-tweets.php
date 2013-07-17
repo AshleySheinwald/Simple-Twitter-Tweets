@@ -348,8 +348,6 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 				for($i = 0; $i < $limitToDisplay; $i++) :
 					$tweet = $fetchedTweets[$i];
 
-
-
 			    	// Core info.
 			    	$name = $tweet->user->name;
 
@@ -363,7 +361,6 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 					// Process Tweets - Use Twitter entities for correct URL, hash and mentions
 					$text = $this->process_links($tweet);
-
 
 			    	// Need to get time in Unix format.
 			    	$time = $tweet->created_at;
