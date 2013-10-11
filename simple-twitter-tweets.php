@@ -2,7 +2,7 @@
 /*
 Plugin Name: Simple Twitter Tweets
 Plugin URI: http://www.planet-interactive.co.uk/simple-twitter-tweets
-Description: Display last x number tweets from Twitter API stream, store locally in dataabse to present past tweets when failure to access Twitters restrictive API occurs
+Description: Display last x number tweets from Twitter API stream, store locally in database to present past tweets when failure to access Twitters restrictive API occurs
 Author: Ashley Sheinwald
 Version: 1.3.3
 Author URI: http://www.planet-interactive.co.uk/
