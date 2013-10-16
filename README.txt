@@ -4,7 +4,7 @@ Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A94
 Tags: Twitter, Stream, Tweets, Twitter OAuth, social
 Requires at least: 3.0
 Tested up to: 3.6.1
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,6 +130,9 @@ We've tested it and as far as we know it works great! Phew, but if you have an i
 10. Style how you like, "Your Tweets your way"
 
 == Changelog ==
+
+= 2.1 =
+* [Doh] Read 2.0 changes below – Source control issue uploading correct directories
 
 = 2.0 =
 * [Added] Twitter Avatar, display, controls, presentation, styling and more
