@@ -4,7 +4,7 @@ Plugin Name: Simple Twitter Tweets
 Plugin URI: http://www.planet-interactive.co.uk/simple-twitter-tweets
 Description: Display last x number tweets from Twitter API stream, store locally in database to present past tweets when failure to access Twitters restrictive API occurs
 Author: Ashley Sheinwald
-Version: 3.0
+Version: 3.1
 Author URI: http://www.planet-interactive.co.uk/
 */
 
@@ -406,9 +406,10 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 			// base64 fix for emoji ? --> if(false === ($tweets = unserialize(base64_decode(get_transient($transName) ))) ) :
 			// if not complete enough implement -> https://github.com/iamcal/php-emoji
 			// #####################################################
-			// if(false === ($tweets = get_transient($transName) ) ) :
-			if(false === ($tweets = unserialize(base64_decode(get_transient($transName) ))) ) :
+			// if(false === ($tweets = get_transient($transName) ) ) : ) );
 
+			// Changed sequence to unserialize and now no error
+			if(false === ($tweets = unserialize( base64_decode(get_transient( $transName ) ) ) ) ) :
 			// Get the tweets from Twitter.
 			//include 'twitteroauth/twitteroauth.php';
 			if ( ! class_exists('TwitterOAuth') )
@@ -480,6 +481,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 				// Save our new transient, and update the backup.
 				// set_transient($transName, $tweets, 60 * $cacheTime);
+
 				base64_encode(serialize(set_transient($transName, $tweets, 60 * $cacheTime)));
 				update_option($backupName, $tweets);
 				endif;
