@@ -131,7 +131,7 @@ We've tested it and as far as we know it works great! Phew, but if you have an i
 
 == Changelog ==
 = 3.1 =
-* [Fixed] Serialization error fixed - change order of decode
+* [Fixed] Serialization error fixed - changed base_64 fix for 4-byte emoji strip
 
 = 3.0 =
 * [Fixed] Class conflict error - check for use before including
