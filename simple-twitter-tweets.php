@@ -147,26 +147,26 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 		$instance 			= wp_parse_args( (array) $instance, $defaults );
 		$title 				= $instance['title'];
 		$name 				= $instance['name'];
-		$numTweets 			= $instance['numTweets'];
-		$cacheTime 			= $instance['cacheTime'];
+		$numTweets 		= $instance['numTweets'];
+		$cacheTime 		= $instance['cacheTime'];
 		$consumerKey 		= trim($instance['consumerKey']);
 		$consumerSecret 	= trim($instance['consumerSecret']);
 		$accessToken 		= trim($instance['accessToken']);
-		$accessTokenSecret 	= trim($instance['accessTokenSecret']);
+		$accessTokenSecret	= trim($instance['accessTokenSecret']);
 		$exclude_replies 	= $instance['exclude_replies'];
 		$twitterFollow 		= $instance['twitterFollow'];
-		$dataShowCount 		= $instance['dataShowCount'];
+		$dataShowCount 	= $instance['dataShowCount'];
 		$dataShowScreenName = $instance['dataShowScreenName'];
 		$dataLang 			= $instance['dataLang'];
 		// STARTING NEW FOR 2.0
 		$timeRef 			= $instance['timeRef'];
 		$timeAgo 			= $instance['timeAgo'];
-		$twitterIntents 	= $instance['twitterIntents'];
+		$twitterIntents 		= $instance['twitterIntents'];
 		$twitterIntentsText = $instance['twitterIntentsText'];
 		$intentColor 		= $instance['intentColor'];
 		$showAvatar 		= $instance['showAvatar'];
 		$roundCorners 		= $instance['roundCorners'];
-		$avatarSize 		= $instance['avatarSize'];
+		$avatarSize 			= $instance['avatarSize'];
 		?>
 
 		<?php
@@ -298,26 +298,26 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 		//Strip tags from title and name to remove HTML
 		$instance['title'] 				= strip_tags( $new_instance['title'] );
 		$instance['name'] 				= strip_tags( $new_instance['name'] );
-		$instance['numTweets'] 			= $new_instance['numTweets'];
+		$instance['numTweets'] 		= $new_instance['numTweets'];
 		$instance['cacheTime'] 			= $new_instance['cacheTime'];
 		$instance['consumerKey'] 		= trim($new_instance['consumerKey']);
 		$instance['consumerSecret'] 	= trim($new_instance['consumerSecret']);
 		$instance['accessToken'] 		= trim($new_instance['accessToken']);
 		$instance['accessTokenSecret'] 	= trim($new_instance['accessTokenSecret']);
-		$instance['exclude_replies'] 	= $new_instance['exclude_replies'];
+		$instance['exclude_replies'] 		= $new_instance['exclude_replies'];
 		$instance['twitterFollow'] 		= $new_instance['twitterFollow'];
-		$instance['dataShowCount']		= $new_instance['dataShowCount'];
+		$instance['dataShowCount']	= $new_instance['dataShowCount'];
 		$instance['dataShowScreenName']	= $new_instance['dataShowScreenName'];
 		$instance['dataLang']			= $new_instance['dataLang'];
 		// STARTING NEW FOR 2.0
 		$instance['timeRef'] 			= $new_instance['timeRef'];
 		$instance['timeAgo'] 			= $new_instance['timeAgo'];
-		$instance['twitterIntents'] 	= $new_instance['twitterIntents'];
-		$instance['twitterIntentsText'] = $new_instance['twitterIntentsText'];
-		$instance['intentColor']		= strip_tags( $new_instance['intentColor'] );
+		$instance['twitterIntents'] 		= $new_instance['twitterIntents'];
+		$instance['twitterIntentsText'] 	= $new_instance['twitterIntentsText'];
+		$instance['intentColor']			= strip_tags( $new_instance['intentColor'] );
 		$instance['showAvatar'] 		= $new_instance['showAvatar'];
 		$instance['roundCorners'] 		= $new_instance['roundCorners'];
-		$instance['avatarSize'] 		= strip_tags( $new_instance['avatarSize'] );
+		$instance['avatarSize'] 			= strip_tags( $new_instance['avatarSize'] );
 
 		return $instance;
 	}

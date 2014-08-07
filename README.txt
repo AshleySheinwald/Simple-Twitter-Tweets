@@ -133,7 +133,7 @@ We've tested it and as far as we know it works great! Phew, but if you have an i
 * [Added] SSL reference for avatar (profile pic) images for secure pages
 * [Added] Check for data retrieval, handles foreach warning (bullet proof old bug)
 * [Added] Defined 'ago' so when not used handles warning
-* [Added] Clean inputs removes any whitespace issue for validation
+* [Added] Clean inputs no whitespace issue
 * [Updated] URL for Twitter apps creation updated (as it was moved)
 
 = 3.1 =
