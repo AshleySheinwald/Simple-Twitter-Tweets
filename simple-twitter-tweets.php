@@ -308,7 +308,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Strip tags from title and name to remove HTML
 		$instance['title'] 				= strip_tags( $new_instance['title'] );
-		$instance['titleLink'] 				= strip_tags( $new_instance['titleLink'] );
+		$instance['titleLink'] 				= $new_instance['titleLink'];
 		$instance['name'] 				= strip_tags( $new_instance['name'] );
 		$instance['numTweets'] 		= $new_instance['numTweets'];
 		$instance['cacheTime'] 		= $new_instance['cacheTime'];
@@ -342,7 +342,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Our variables from the widget settings.
 		$PI_title 				= empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
-		if(isset($instance['titleLink'])){
+		if( isset($instance['titleLink']) && $instance['titleLink'] == true){
 			$PI_title = '<a target="_blank" href="https://twitter.com/'.$instance['name'].'">'.$PI_title.'</a>';
 		}
 		$PI_name 				= $instance['name'];
