@@ -598,7 +598,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 				// ADD Twitter follow button - to increase engagement
 				// Make it an options choice though
 			if($twitterFollow){ ?>
-				<a href="https://twitter.com/<?php echo $PI_name; ?>" class="twitter-follow-button" data-show-count="<?php echo $dataShowCount; ?>" data-show-screen-name="<?php echo $dataShowScreenName; ?>" data-lang="<?php echo $dataLang; ?>"><?php _e('Follow','simple-twitter-tweets'); ?> @<?php echo $PI_name; ?></a>
+				<div class="twitter-follow-container"><a href="https://twitter.com/<?php echo $PI_name; ?>" class="twitter-follow-button" data-show-count="<?php echo $dataShowCount; ?>" data-show-screen-name="<?php echo $dataShowScreenName; ?>" data-lang="<?php echo $dataLang; ?>"><?php _e('Follow','simple-twitter-tweets'); ?> @<?php echo $PI_name; ?></a></div>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			<?php
 			}
