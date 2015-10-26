@@ -185,6 +185,12 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'simple-twitter-tweets') ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label>
 		</p>
 		<p>
+			<label for="<?php echo $this->get_field_id("titleLink"); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("titleLink"); ?>" name="<?php echo $this->get_field_name("titleLink"); ?>"<?php checked( (bool) $instance["titleLink"], true ); ?> />
+				<?php _e( 'Make widget title link' ); ?>
+			</label>
+		</p>	
+		<p>
 			<label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Twitter Name (without @ symbol):', 'simple-twitter-tweets') ?> <input class="widefat" id="<?php echo $this->get_field_id('name'); ?>" name="<?php echo $this->get_field_name('name'); ?>" type="text" value="<?php echo esc_attr($name); ?>" /></label>
 		</p>
 		<p>
@@ -302,6 +308,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Strip tags from title and name to remove HTML
 		$instance['title'] 				= strip_tags( $new_instance['title'] );
+		$instance['titleLink'] 				= $new_instance['titleLink'];
 		$instance['name'] 				= strip_tags( $new_instance['name'] );
 		$instance['numTweets'] 		= $new_instance['numTweets'];
 		$instance['cacheTime'] 		= $new_instance['cacheTime'];
@@ -335,6 +342,9 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Our variables from the widget settings.
 		$PI_title 				= empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+		if( isset($instance['titleLink']) && $instance['titleLink'] == true){
+			$PI_title = '<a target="_blank" href="https://twitter.com/'.$instance['name'].'">'.$PI_title.'</a>';
+		}
 		$PI_name 				= $instance['name'];
 		$PI_numTweets 		= $instance['numTweets'];
 		$PI_cacheTime 		= $instance['cacheTime'];
