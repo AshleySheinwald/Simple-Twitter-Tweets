@@ -460,7 +460,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 						// COMMUNITY REQUEST !!!!!! (2)
 						$screen_name = $tweet->user->screen_name;
 
-						$permalink = 'http://twitter.com/'. $name .'/status/'. $tweet->id_str;
+						$permalink = 'http://twitter.com/'. $screen_name .'/status/'. $tweet->id_str;
 						$tweet_id = $tweet->id_str;
 
 						/* Alternative image sizes method: http://dev.twitter.com/doc/get/users/profile_image/:screen_name */
