@@ -595,7 +595,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 								<span <?php echo ($twitterIntentsText) ? 'class="pi-visuallyhidden"':''; ?>><?php _e('Favourite','simple-twitter-tweets'); ?></span></a>
 						</div>
 						<?php } ?>
-
+								<div class="stt-clear"></div>
 							</li>
 					<?php endforeach; ?>
 
