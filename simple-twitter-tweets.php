@@ -549,7 +549,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 									}
 								?>
 								<?php echo $t['text']; ?>
-									<br/><em>
+									<span class="stt-em">
 									<?php if(!isset($screen_name)){ $screen_name = $name; }?>
 						<a href="http://www.twitter.com/<?php echo $screen_name; ?>" target="_blank" title="<?php
 						printf(
@@ -578,7 +578,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 							?>
 							</a>
-									</em>
+									</span>
 
 						<?php // INTENTS REF: DISPLAY OR NOT
 						if($twitterIntents == "true"){

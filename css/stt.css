@@ -56,3 +56,8 @@
     position: absolute;
     width: 1px;
 }
+/* replacing <br/><em> with CSS class */
+.stt-em {
+	font-style: italic;
+	display: block;
+}
