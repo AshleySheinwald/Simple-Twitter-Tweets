@@ -4,7 +4,7 @@ Plugin Name: Simple Twitter Tweets
 Plugin URI: http://www.planet-interactive.co.uk/simple-twitter-tweets
 Description: Display last x number tweets from Twitter API stream, store locally in database to present past tweets when failure to access Twitters restrictive API occurs
 Author: Ashley Sheinwald
-Version: 4.0
+Version: 4.2
 Author URI: http://www.planet-interactive.co.uk/
 Text Domain: simple-twitter-tweets
 */
@@ -185,6 +185,12 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'simple-twitter-tweets') ?> <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" /></label>
 		</p>
 		<p>
+			<label for="<?php echo $this->get_field_id("titleLink"); ?>">
+				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("titleLink"); ?>" name="<?php echo $this->get_field_name("titleLink"); ?>"<?php checked( (bool) $instance["titleLink"], true ); ?> />
+				<?php _e( 'Make widget title link' ); ?>
+			</label>
+		</p>
+		<p>
 			<label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Twitter Name (without @ symbol):', 'simple-twitter-tweets') ?> <input class="widefat" id="<?php echo $this->get_field_id('name'); ?>" name="<?php echo $this->get_field_name('name'); ?>" type="text" value="<?php echo esc_attr($name); ?>" /></label>
 		</p>
 		<p>
@@ -302,6 +308,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Strip tags from title and name to remove HTML
 		$instance['title'] 				= strip_tags( $new_instance['title'] );
+		$instance['titleLink'] 				= $new_instance['titleLink'];
 		$instance['name'] 				= strip_tags( $new_instance['name'] );
 		$instance['numTweets'] 		= $new_instance['numTweets'];
 		$instance['cacheTime'] 		= $new_instance['cacheTime'];
@@ -335,6 +342,9 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Our variables from the widget settings.
 		$PI_title 				= empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+		if( isset($instance['titleLink']) && $instance['titleLink'] == true){
+			$PI_title = '<a target="_blank" href="https://twitter.com/'.$instance['name'].'">'.$PI_title.'</a>';
+		}
 		$PI_name 				= $instance['name'];
 		$PI_numTweets 		= $instance['numTweets'];
 		$PI_cacheTime 		= $instance['cacheTime'];
@@ -460,7 +470,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 						// COMMUNITY REQUEST !!!!!! (2)
 						$screen_name = $tweet->user->screen_name;
 
-						$permalink = 'http://twitter.com/'. $name .'/status/'. $tweet->id_str;
+						$permalink = 'http://twitter.com/'. $screen_name .'/status/'. $tweet->id_str;
 						$tweet_id = $tweet->id_str;
 
 						/* Alternative image sizes method: http://dev.twitter.com/doc/get/users/profile_image/:screen_name */
@@ -539,7 +549,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 									}
 								?>
 								<?php echo $t['text']; ?>
-									<br/><em>
+									<span class="stt-em">
 									<?php if(!isset($screen_name)){ $screen_name = $name; }?>
 						<a href="http://www.twitter.com/<?php echo $screen_name; ?>" target="_blank" title="<?php
 						printf(
@@ -568,7 +578,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 							?>
 							</a>
-									</em>
+									</span>
 
 						<?php // INTENTS REF: DISPLAY OR NOT
 						if($twitterIntents == "true"){
@@ -598,7 +608,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 				// ADD Twitter follow button - to increase engagement
 				// Make it an options choice though
 			if($twitterFollow){ ?>
-				<a href="https://twitter.com/<?php echo $PI_name; ?>" class="twitter-follow-button" data-show-count="<?php echo $dataShowCount; ?>" data-show-screen-name="<?php echo $dataShowScreenName; ?>" data-lang="<?php echo $dataLang; ?>"><?php _e('Follow','simple-twitter-tweets'); ?> @<?php echo $PI_name; ?></a>
+				<div class="twitter-follow-container"><a href="https://twitter.com/<?php echo $PI_name; ?>" class="twitter-follow-button" data-show-count="<?php echo $dataShowCount; ?>" data-show-screen-name="<?php echo $dataShowScreenName; ?>" data-lang="<?php echo $dataLang; ?>"><?php _e('Follow','simple-twitter-tweets'); ?> @<?php echo $PI_name; ?></a></div>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 			<?php
 			}
