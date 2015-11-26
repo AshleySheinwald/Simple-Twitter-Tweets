@@ -550,13 +550,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 								?>
 								<?php echo $t['text']; ?>
 									<span class="stt-em">
-									<?php if(!isset($screen_name)){ $screen_name = $name; }?>
-						<a href="http://www.twitter.com/<?php echo $screen_name; ?>" target="_blank" title="<?php
-						printf(
-							/* translators: %s: Twitter user name to follow */
-							__( 'Follow %s on Twitter [Opens a new window]', 'simple-twitter-tweets' ),
-							$name
-						); ?>">
+						<a href="<?php echo $t[permalink]; ?>" target="_blank">
 							<?php
 
 								// Original - long time ref: hours...
