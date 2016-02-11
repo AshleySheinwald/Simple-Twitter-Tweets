@@ -4,7 +4,7 @@ Plugin Name: Simple Twitter Tweets
 Plugin URI: http://www.planet-interactive.co.uk/simple-twitter-tweets
 Description: Display last x number tweets from Twitter API stream, store locally in database to present past tweets when failure to access Twitters restrictive API occurs
 Author: Ashley Sheinwald
-Version: 4.2
+Version: 4.3
 Author URI: http://www.planet-interactive.co.uk/
 Text Domain: simple-twitter-tweets
 */
@@ -119,13 +119,13 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 		//Set up some default widget settings.
 		$defaults = array(
-				'title' 				=> __('Recent Tweets', 'simple-twitter-tweets')
+			  'title' 					=> __('Recent Tweets', 'simple-twitter-tweets')
 			, 'name' 				=> __('iPlanetUK', 'simple-twitter-tweets')
 			, 'numTweets' 			=> __(4, 'simple-twitter-tweets') // How many to display
 			, 'cacheTime' 			=> __(5, 'simple-twitter-tweets') // Time in minutes between updates
 			, 'consumerKey' 		=> __('xxxxxxxxxxxx', 'simple-twitter-tweets') // Consumer key
-			, 'consumerSecret' 		=> __('xxxxxxxxxxxx', 'simple-twitter-tweets') // Consumer secret
-			, 'accessToken' 			=> __('xxxxxxxxxxxx', 'simple-twitter-tweets') // Access token
+			, 'consumerSecret' 	=> __('xxxxxxxxxxxx', 'simple-twitter-tweets') // Consumer secret
+			, 'accessToken' 		=> __('xxxxxxxxxxxx', 'simple-twitter-tweets') // Access token
 			, 'accessTokenSecret'	=> __('xxxxxxxxxxxx', 'simple-twitter-tweets') // Access token secret
 			, 'exclude_replies'		=> true
 			, 'twitterFollow'			=> false
@@ -137,7 +137,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 			, 'timeRef'				=> false // false = use old full hour ref, true if selected will use hour ref as h (twitter style)
 			, 'timeAgo'				=> true // true = show ago, false will turn it off
 			// Intents
-			, 'twitterIntents'		=> false // true = Default: show Twitter Intents
+			, 'twitterIntents'			=> false // true = Default: show Twitter Intents
 			, 'twitterIntentsText'	=> false // false = Default: Show text - activate to turn off text display and use icons only
 			, 'intentColor'			=> "#999999" // Default colour, light grey
 			// Avatar
@@ -612,4 +612,10 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 
 }
 add_action( 'widgets_init', create_function('', 'return register_widget("PI_SimpleTwitterTweets");') );
+
+add_action( 'plugins_loaded', 'PI_SimpleTwitterTweets_load_plugin_textdomain' );
+// Now loads language files
+function PI_SimpleTwitterTweets_load_plugin_textdomain() {
+    load_plugin_textdomain( 'simple-twitter-tweets', false, dirname(plugin_basename(__FILE__)) . '/languages/' );
+}
 ?>
