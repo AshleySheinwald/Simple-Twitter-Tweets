@@ -4,7 +4,7 @@ Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A94
 Tags: Twitter, Stream, Tweets, Twitter OAuth, social
 Requires at least: 3.0
 Tested up to: 4.4.2
-Stable tag: 4.3
+Stable tag: 4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,6 +129,11 @@ We've tested it and as far as we know it works great! Phew, but if you have an i
 9. Style how you like, "Your Tweets your way"
 
 == Changelog ==
+= 4.4 =
+* [Fixed] Cleanup - variable definition errors
+* [Fixed] Cleanup - oAuth port definition error
+* [Fixed] i18n localisation couple missing textdomain references (props: alysko)
+
 = 4.3 =
 * [Added] Load Plugin Text Domain. Now loads the language files.
 * [Updated] Made the permalink on the list item (Cheers Brian)

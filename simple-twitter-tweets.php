@@ -4,7 +4,7 @@ Plugin Name: Simple Twitter Tweets
 Plugin URI: http://www.planet-interactive.co.uk/simple-twitter-tweets
 Description: Display last x number tweets from Twitter API stream, store locally in database to present past tweets when failure to access Twitters restrictive API occurs
 Author: Ashley Sheinwald
-Version: 4.3
+Version: 4.4
 Author URI: http://www.planet-interactive.co.uk/
 Text Domain: simple-twitter-tweets
 */
@@ -187,7 +187,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 		<p>
 			<label for="<?php echo $this->get_field_id("titleLink"); ?>">
 				<input type="checkbox" class="checkbox" id="<?php echo $this->get_field_id("titleLink"); ?>" name="<?php echo $this->get_field_name("titleLink"); ?>"<?php checked( (bool) $instance["titleLink"], true ); ?> />
-				<?php _e( 'Make widget title link' ); ?>
+				<?php _e( 'Make widget title link', 'simple-twitter-tweets' ); ?>
 			</label>
 		</p>
 		<p>
@@ -568,7 +568,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 									$displayAgo = "";
 								}
 								// Use to make il8n compliant
-								printf(__('%1$s%2$s'), $timeDisplay, $displayAgo);
+								printf(__( '%1$s%2$s', 'simple-twitter-tweets' ), $timeDisplay, $displayAgo);
 
 							?>
 							</a>
