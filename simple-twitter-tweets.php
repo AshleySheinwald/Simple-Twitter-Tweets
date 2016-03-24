@@ -550,7 +550,7 @@ class PI_SimpleTwitterTweets extends WP_Widget{
 								?>
 								<?php echo $t['text']; ?>
 									<span class="stt-em">
-						<a href="<?php echo $t[permalink]; ?>" target="_blank">
+						<a href="<?php echo $t['permalink']; ?>" target="_blank">
 							<?php
 
 								// Original - long time ref: hours...
